@@ -1,6 +1,4 @@
-package model;
-
-import java.util.Objects;
+package edu.kpi.lab.notebook.model;
 
 public class Notebook implements INotebook {
 	private final NotebookItem[] arrayOfItems;

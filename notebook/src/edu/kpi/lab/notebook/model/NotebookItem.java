@@ -1,4 +1,4 @@
-package model;
+package edu.kpi.lab.notebook.model;
 
 public class NotebookItem implements INotebookItem {
 	private String surname;
