@@ -4,8 +4,11 @@ import edu.kpi.lab.notebook.model.Notebook;
 import edu.kpi.lab.notebook.model.NotebookItem;
 import edu.kpi.lab.notebook.model.exceptions.ParserException;
 
+import java.util.Arrays;
+
 public class NotebookParser {
 	public Notebook parse(String str) throws ParserException {
+		if (str.length() == 0) return new Notebook();
 		String[] lines = str.split("\n");
 		NotebookItem[] items = new NotebookItem[lines.length];
 		for (int i = 0; i < lines.length; i++) {

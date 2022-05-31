@@ -16,6 +16,10 @@ public class Notebook implements INotebook {
 		this.itemList = Arrays.stream(arrayOfItems).collect(Collectors.toList());
 	}
 
+	public Notebook(List<NotebookItem> itemList) {
+		this.itemList = itemList;
+	}
+
 	@Override
 	public List<NotebookItem> getListOfItems() {
 		return this.itemList;
