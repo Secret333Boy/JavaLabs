@@ -1,46 +1,59 @@
 package edu.kpi.lab.notebook.model;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.stream.Collectors;
+
 public class Notebook implements INotebook {
-	private final NotebookItem[] arrayOfItems;
+	private final ArrayList<NotebookItem> itemList;
 
 	public Notebook() {
-		this.arrayOfItems = new NotebookItem[0];
+		this.itemList = new ArrayList<>(0);
 	}
 
 	public Notebook(NotebookItem[] arrayOfItems) {
-		this.arrayOfItems = arrayOfItems;
+		this.itemList = Arrays.stream(arrayOfItems).collect(Collectors.toCollection(ArrayList::new));
 	}
 
 	@Override
-	public NotebookItem[] getArrayOfItems() {
-		return this.arrayOfItems;
+	public ArrayList<NotebookItem> getListOfItems() {
+		return this.itemList;
 	}
 
 	@Override
-	public NotebookItem[] findByFirstLetterOfSurname(String letter) {
-		NotebookItem[] rawResult = new NotebookItem[arrayOfItems.length];
-		int n = 0;
-		for (NotebookItem item : arrayOfItems) {
+	public void addItem(NotebookItem item) {
+		this.itemList.add(item);
+	}
+
+	@Override
+	public void removeItem(int index) {
+		this.itemList.remove(index);
+	}
+
+	@Override
+	public void removeItem(NotebookItem item) {
+		this.itemList.remove(item);
+	}
+
+	@Override
+	public ArrayList<NotebookItem> findByFirstLetterOfSurname(String letter) {
+		ArrayList<NotebookItem> result = new ArrayList<>();
+		for (NotebookItem item : this.itemList) {
 			if (item.getSurname().startsWith(letter)) {
-				rawResult[n++] = item;
+				result.add(item);
 			}
 		}
-		NotebookItem[] result = new NotebookItem[n];
-		System.arraycopy(rawResult, 0, result, 0, n);
 		return result;
 	}
 
 	@Override
-	public NotebookItem[] filterByTelephoneExistence() {
-		NotebookItem[] rawResult = new NotebookItem[arrayOfItems.length];
-		int n = 0;
-		for (NotebookItem item : arrayOfItems) {
+	public ArrayList<NotebookItem> filterByTelephoneExistence() {
+		ArrayList<NotebookItem> result = new ArrayList<>();
+		for (NotebookItem item : this.itemList) {
 			if (!item.getTelephone().equals("")) {
-				rawResult[n++] = item;
+				result.add(item);
 			}
 		}
-		NotebookItem[] result = new NotebookItem[n];
-		System.arraycopy(rawResult, 0, result, 0, n);
 		return result;
 	}
 }

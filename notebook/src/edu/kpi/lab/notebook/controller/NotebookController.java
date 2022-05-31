@@ -5,11 +5,14 @@ import edu.kpi.lab.notebook.model.NotebookItem;
 import edu.kpi.lab.notebook.view.InputView;
 import edu.kpi.lab.notebook.view.NotebookView;
 
+import java.util.ArrayList;
+
 public class NotebookController implements INotebookController {
 	private final Notebook notebook;
 
 	public NotebookController() {
 		this.notebook = new Notebook();
+		this.notebook.addItem(new NotebookItem("Pashkovsky", "Eugene", "Serhiyovich", "??", "+3333", "-"));
 		boolean finished = false;
 		while (!finished) {
 			NotebookView view = new NotebookView();
@@ -19,12 +22,17 @@ public class NotebookController implements INotebookController {
 			int chosenOption = input.getMenuOptionInput();
 			switch (chosenOption) {
 				case 1:
-					view.printResult(this.notebook.getArrayOfItems());
+					view.printResult(this.notebook.getListOfItems());
 					input.waitUntilKeyIsPressed();
 					break;
 				case 2:
+					String letter = input.getInputLetter();
+					view.printResult(this.notebook.findByFirstLetterOfSurname(letter));
+					input.waitUntilKeyIsPressed();
 					break;
 				case 3:
+					view.printResult(this.notebook.filterByTelephoneExistence());
+					input.waitUntilKeyIsPressed();
 					break;
 				case 4:
 					if (input.getInputSureExit()) {
@@ -41,12 +49,12 @@ public class NotebookController implements INotebookController {
 	}
 
 	@Override
-	public NotebookItem[] findByFirstLetterOfSurname(String letter) {
+	public ArrayList<NotebookItem> findByFirstLetterOfSurname(String letter) {
 		return this.notebook.findByFirstLetterOfSurname(letter);
 	}
 
 	@Override
-	public NotebookItem[] filterByTelephoneExistence() {
+	public ArrayList<NotebookItem> filterByTelephoneExistence() {
 		return this.notebook.filterByTelephoneExistence();
 	}
 }

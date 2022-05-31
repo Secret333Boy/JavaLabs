@@ -2,6 +2,8 @@ package edu.kpi.lab.notebook.view;
 
 import edu.kpi.lab.notebook.model.NotebookItem;
 
+import java.util.List;
+
 public class NotebookView implements INotebookView {
 	public static final String[] MAIN_MENU = {"Show all items in notebook", "Find by first letter of surname", "Filter by telephone existence", "Exit"};
 	public static final int MAIN_MENU_ITEMS_COUNT = NotebookView.MAIN_MENU.length;
@@ -32,7 +34,7 @@ public class NotebookView implements INotebookView {
 	}
 
 	@Override
-	public void printResult(NotebookItem[] result) {
+	public void printResult(List<NotebookItem> result) {
 		for (NotebookItem item : result) {
 			this.printMessage(item.toString() + "\n");
 		}
