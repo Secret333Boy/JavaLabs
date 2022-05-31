@@ -2,21 +2,22 @@ package edu.kpi.lab.notebook.model;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.stream.Collectors;
 
 public class Notebook implements INotebook {
-	private final ArrayList<NotebookItem> itemList;
+	private final List<NotebookItem> itemList;
 
 	public Notebook() {
 		this.itemList = new ArrayList<>(0);
 	}
 
 	public Notebook(NotebookItem[] arrayOfItems) {
-		this.itemList = Arrays.stream(arrayOfItems).collect(Collectors.toCollection(ArrayList::new));
+		this.itemList = Arrays.stream(arrayOfItems).collect(Collectors.toList());
 	}
 
 	@Override
-	public ArrayList<NotebookItem> getListOfItems() {
+	public List<NotebookItem> getListOfItems() {
 		return this.itemList;
 	}
 
@@ -36,8 +37,8 @@ public class Notebook implements INotebook {
 	}
 
 	@Override
-	public ArrayList<NotebookItem> findByFirstLetterOfSurname(String letter) {
-		ArrayList<NotebookItem> result = new ArrayList<>();
+	public List<NotebookItem> findByFirstLetterOfSurname(String letter) {
+		List<NotebookItem> result = new ArrayList<>();
 		for (NotebookItem item : this.itemList) {
 			if (item.getSurname().startsWith(letter)) {
 				result.add(item);
@@ -47,8 +48,8 @@ public class Notebook implements INotebook {
 	}
 
 	@Override
-	public ArrayList<NotebookItem> filterByTelephoneExistence() {
-		ArrayList<NotebookItem> result = new ArrayList<>();
+	public List<NotebookItem> filterByTelephoneExistence() {
+		List<NotebookItem> result = new ArrayList<>();
 		for (NotebookItem item : this.itemList) {
 			if (!item.getTelephone().equals("")) {
 				result.add(item);

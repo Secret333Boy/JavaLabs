@@ -1,16 +1,16 @@
 package edu.kpi.lab.notebook.model;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public interface INotebook {
-	ArrayList<NotebookItem> getListOfItems();
+	List<NotebookItem> getListOfItems();
 
 	void addItem(NotebookItem item);
 
 	void removeItem(int index);
 	void removeItem(NotebookItem item);
 
-	ArrayList<NotebookItem> findByFirstLetterOfSurname(String letter);
+	List<NotebookItem> findByFirstLetterOfSurname(String letter);
 
-	ArrayList<NotebookItem> filterByTelephoneExistence();
+	List<NotebookItem> filterByTelephoneExistence();
 }

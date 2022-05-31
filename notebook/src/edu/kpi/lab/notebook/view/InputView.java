@@ -1,7 +1,5 @@
 package edu.kpi.lab.notebook.view;
 
-import edu.kpi.lab.notebook.model.exceptions.InputException;
-
 import java.util.Scanner;
 
 public class InputView implements IInputView {

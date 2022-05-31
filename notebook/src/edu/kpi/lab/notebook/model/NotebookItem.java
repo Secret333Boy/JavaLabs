@@ -79,6 +79,6 @@ public class NotebookItem implements INotebookItem {
 
 	@Override
 	public String toString() {
-		return this.surname + " " + this.name + " " + this.middleName + " | " + this.address + " | " + this.telephone + " | " + additionalInfo;
+		return this.surname + " | " + this.name + " | " + this.middleName + " | " + this.address + " | " + this.telephone + " | " + additionalInfo;
 	}
 }
