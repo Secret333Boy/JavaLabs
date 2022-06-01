@@ -13,13 +13,10 @@ public class NotebookRepository {
 
 	public NotebookRepository() {
 		try {
-			if (file.createNewFile()) {
-				System.out.println("File created");
-			} else {
-				System.out.println("File loaded");
-			}
+			file.createNewFile();
 		} catch (IOException e) {
 			System.out.println("Error: " + e);
+			System.exit(2612);
 		}
 	}
 
