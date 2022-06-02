@@ -1,6 +1,6 @@
 package edu.kpi.lab.notebook.controller;
 
-import edu.kpi.lab.notebook.model.Notebook;
+import edu.kpi.lab.notebook.model.entity.Notebook;
 import edu.kpi.lab.notebook.model.repository.NotebookRepository;
 import edu.kpi.lab.notebook.view.InputView;
 import edu.kpi.lab.notebook.view.NotebookView;

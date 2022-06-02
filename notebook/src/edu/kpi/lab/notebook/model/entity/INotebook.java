@@ -1,4 +1,6 @@
-package edu.kpi.lab.notebook.model;
+package edu.kpi.lab.notebook.model.entity;
+
+import edu.kpi.lab.notebook.model.entity.NotebookItem;
 
 import java.util.List;
 

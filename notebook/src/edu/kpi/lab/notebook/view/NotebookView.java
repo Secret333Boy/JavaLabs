@@ -1,6 +1,6 @@
 package edu.kpi.lab.notebook.view;
 
-import edu.kpi.lab.notebook.model.NotebookItem;
+import edu.kpi.lab.notebook.model.entity.NotebookItem;
 
 import java.util.List;
 
@@ -35,6 +35,10 @@ public class NotebookView implements INotebookView {
 
 	@Override
 	public void printResult(List<NotebookItem> result) {
+		if(result.isEmpty()) {
+			this.printMessage("Result is empty!\n");
+			return;
+		}
 		for (NotebookItem item : result) {
 			this.printMessage(item.toString() + "\n");
 		}

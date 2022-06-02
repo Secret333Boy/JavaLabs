@@ -1,12 +1,10 @@
 package edu.kpi.lab.notebook.model.parser;
 
-import edu.kpi.lab.notebook.model.Notebook;
-import edu.kpi.lab.notebook.model.NotebookItem;
+import edu.kpi.lab.notebook.model.entity.Notebook;
+import edu.kpi.lab.notebook.model.entity.NotebookItem;
 import edu.kpi.lab.notebook.model.exceptions.ParserException;
 
-import java.util.Arrays;
-
-public class NotebookParser {
+public class NotebookParser implements Parser {
 	public Notebook parse(String str) throws ParserException {
 		if (str.length() == 0) return new Notebook();
 		String[] lines = str.split("\n");

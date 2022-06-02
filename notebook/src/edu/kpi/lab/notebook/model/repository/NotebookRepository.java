@@ -1,6 +1,6 @@
 package edu.kpi.lab.notebook.model.repository;
 
-import edu.kpi.lab.notebook.model.Notebook;
+import edu.kpi.lab.notebook.model.entity.Notebook;
 import edu.kpi.lab.notebook.model.exceptions.ParserException;
 import edu.kpi.lab.notebook.model.parser.NotebookParser;
 
