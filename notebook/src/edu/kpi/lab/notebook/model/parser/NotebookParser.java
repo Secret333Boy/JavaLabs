@@ -4,7 +4,8 @@ import edu.kpi.lab.notebook.model.entity.Notebook;
 import edu.kpi.lab.notebook.model.entity.NotebookItem;
 import edu.kpi.lab.notebook.model.exceptions.ParserException;
 
-public class NotebookParser implements Parser {
+public class NotebookParser implements Parser, NotebookSerializer {
+	@Override
 	public Notebook parse(String str) throws ParserException {
 		if (str.length() == 0) return new Notebook();
 		String[] lines = str.split("\n");
@@ -19,6 +20,7 @@ public class NotebookParser implements Parser {
 		return new Notebook(items);
 	}
 
+	@Override
 	public String justify(Notebook notebook) {
 		StringBuilder stringBuilder = new StringBuilder();
 		for (NotebookItem item : notebook.getListOfItems()) {
