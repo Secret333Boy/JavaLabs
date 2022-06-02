@@ -26,6 +26,7 @@ public class FileProcessor {
 		try (FileReader fileReader = new FileReader(this.file); Scanner scanner = new Scanner(fileReader)) {
 			while (scanner.hasNextLine()) {
 				stringBuilder.append(scanner.nextLine());
+				stringBuilder.append("\n");
 			}
 		} catch (IOException e) {
 			System.exit(2612);
