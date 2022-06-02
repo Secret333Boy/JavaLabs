@@ -79,6 +79,7 @@ public class NotebookItem implements INotebookItem {
 
 	@Override
 	public String toString() {
-		return this.surname + " | " + this.name + " | " + this.middleName + " | " + this.address + " | " + this.telephone + " | " + additionalInfo;
+		String fmt = "%15s|%15s|%15s|%30s|%17s|%15s";
+		return String.format(fmt, this.surname, this.name, this.middleName, this.address, this.telephone, this.additionalInfo);
 	}
 }
