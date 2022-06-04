@@ -1,12 +1,17 @@
 package edu.kpi.lab.notebook.model.entity;
 
+import edu.kpi.lab.notebook.model.exceptions.ParserException;
+import edu.kpi.lab.notebook.model.repository.NotebookRepository;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class Notebook implements INotebook {
-	private final List<NotebookItem> itemList;
+	private final NotebookRepository repository = new NotebookRepository();
+	private List<NotebookItem> itemList;
 
 	public Notebook() {
 		this.itemList = new ArrayList<>(0);
@@ -48,5 +53,15 @@ public class Notebook implements INotebook {
 	@Override
 	public List<NotebookItem> filterByTelephoneExistence() {
 		return this.itemList.stream().filter(item -> !item.getTelephone().equals("")).collect(Collectors.toList());
+	}
+
+	@Override
+	public void loadFromFile() throws IOException, ParserException {
+		this.itemList = repository.load();
+	}
+
+	@Override
+	public void saveToFile() throws IOException {
+		repository.save(this.itemList);
 	}
 }

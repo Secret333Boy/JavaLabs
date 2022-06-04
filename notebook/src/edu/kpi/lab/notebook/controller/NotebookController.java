@@ -14,9 +14,9 @@ public class NotebookController {
 	private final InputView input = new InputView(view);
 
 	public void start() {
-		final Notebook notebook;
+		final Notebook notebook = new Notebook();
 		try {
-			notebook = repository.load();
+			notebook.loadFromFile();
 		} catch (IOException e) {
 			view.printError(e);
 			input.waitUntilKeyIsPressed();
@@ -50,6 +50,11 @@ public class NotebookController {
 				case 4 -> {
 					if (this.input.getInputSureExit()) {
 						finished = true;
+						try {
+							notebook.saveToFile();
+						} catch (IOException e) {
+							view.printError(e);
+						}
 					}
 				}
 			}
