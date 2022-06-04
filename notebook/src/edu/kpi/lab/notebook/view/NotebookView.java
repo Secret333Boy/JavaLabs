@@ -40,7 +40,12 @@ public class NotebookView implements INotebookView {
 			return;
 		}
 		for (NotebookItem item : result) {
-			this.printMessage(item.toString() + "\n");
+			this.printMessage(item.toString(true) + "\n");
 		}
+	}
+
+	@Override
+	public void printError(Throwable e) {
+		this.printMessage("Error: " + e.getMessage() + "\n");
 	}
 }

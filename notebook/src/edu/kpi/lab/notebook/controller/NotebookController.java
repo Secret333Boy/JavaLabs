@@ -1,9 +1,12 @@
 package edu.kpi.lab.notebook.controller;
 
 import edu.kpi.lab.notebook.model.entity.Notebook;
+import edu.kpi.lab.notebook.model.exceptions.ParserException;
 import edu.kpi.lab.notebook.model.repository.NotebookRepository;
 import edu.kpi.lab.notebook.view.InputView;
 import edu.kpi.lab.notebook.view.NotebookView;
+
+import java.io.IOException;
 
 public class NotebookController {
 	private final NotebookRepository repository = new NotebookRepository();
@@ -11,7 +14,20 @@ public class NotebookController {
 	private final InputView input = new InputView(view);
 
 	public void start() {
-		final Notebook notebook = repository.load();
+		final Notebook notebook;
+		try {
+			notebook = repository.load();
+		} catch (IOException e) {
+			view.printError(e);
+			input.waitUntilKeyIsPressed();
+			System.exit(8888);
+			return;
+		} catch (ParserException e) {
+			view.printError(e);
+			input.waitUntilKeyIsPressed();
+			System.exit(8881);
+			return;
+		}
 		boolean finished = false;
 		while (!finished) {
 			this.view.clearConsole();

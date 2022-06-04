@@ -10,4 +10,6 @@ public interface INotebookView {
 	void printMessage(String message);
 
 	void printResult(List<NotebookItem> result);
+
+	void printError(Throwable e);
 }

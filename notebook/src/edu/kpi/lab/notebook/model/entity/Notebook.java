@@ -42,23 +42,11 @@ public class Notebook implements INotebook {
 
 	@Override
 	public List<NotebookItem> findByFirstLetterOfSurname(String letter) {
-		List<NotebookItem> result = new ArrayList<>();
-		for (NotebookItem item : this.itemList) {
-			if (item.getSurname().startsWith(letter)) {
-				result.add(item);
-			}
-		}
-		return result;
+		return this.itemList.stream().filter(item -> item.getSurname().startsWith(letter)).collect(Collectors.toList());
 	}
 
 	@Override
 	public List<NotebookItem> filterByTelephoneExistence() {
-		List<NotebookItem> result = new ArrayList<>();
-		for (NotebookItem item : this.itemList) {
-			if (!item.getTelephone().equals("")) {
-				result.add(item);
-			}
-		}
-		return result;
+		return this.itemList.stream().filter(item -> !item.getTelephone().equals("")).collect(Collectors.toList());
 	}
 }

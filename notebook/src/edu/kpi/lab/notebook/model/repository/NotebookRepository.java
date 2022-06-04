@@ -20,20 +20,13 @@ public class NotebookRepository {
 		}
 	}
 
-	public void save(Notebook notebook) {
+	public void save(Notebook notebook) throws IOException {
 		NotebookParser parser = new NotebookParser();
 		this.fileProcessor.writeFile(parser.justify(notebook));
 	}
 
-	public Notebook load() {
+	public Notebook load() throws IOException, ParserException {
 		NotebookParser parser = new NotebookParser();
-		Notebook notebook = new Notebook();
-		try {
-			notebook = parser.parse(this.fileProcessor.readFile());
-		} catch (ParserException e) {
-			System.out.println("Error: " + e);
-			System.exit(2612);
-		}
-		return notebook;
+		return parser.parse(this.fileProcessor.readFile());
 	}
 }

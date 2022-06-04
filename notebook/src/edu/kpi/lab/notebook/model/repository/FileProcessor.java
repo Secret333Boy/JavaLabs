@@ -13,23 +13,17 @@ public class FileProcessor {
 		this.file = file;
 	}
 
-	public void writeFile(String str) {
-		try (PrintWriter printWriter = new PrintWriter(this.file)) {
-			printWriter.print(str);
-		} catch (IOException e) {
-			System.exit(2612);
-		}
+	public void writeFile(String str) throws IOException {
+		new PrintWriter(this.file).print(str);
 	}
 
-	public String readFile() {
+	public String readFile() throws IOException {
 		StringBuilder stringBuilder = new StringBuilder();
-		try (FileReader fileReader = new FileReader(this.file); Scanner scanner = new Scanner(fileReader)) {
-			while (scanner.hasNextLine()) {
-				stringBuilder.append(scanner.nextLine());
-				stringBuilder.append("\n");
-			}
-		} catch (IOException e) {
-			System.exit(2612);
+		FileReader fileReader = new FileReader(this.file);
+		Scanner scanner = new Scanner(fileReader);
+		while (scanner.hasNextLine()) {
+			stringBuilder.append(scanner.nextLine());
+			stringBuilder.append("\n");
 		}
 		return stringBuilder.toString();
 	}

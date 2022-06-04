@@ -79,7 +79,13 @@ public class NotebookItem implements INotebookItem {
 
 	@Override
 	public String toString() {
-		String fmt = "%15s|%15s|%15s|%30s|%17s|%15s";
+		String fmt = "%s|%s|%s|%s|%s|%s";
 		return String.format(fmt, this.surname, this.name, this.middleName, this.address, this.telephone, this.additionalInfo);
+	}
+
+	@Override
+	public String toString(boolean formatted) {
+		String fmt = "%15s|%15s|%15s|%30s|%17s|%15s";
+		return formatted ? String.format(fmt, this.surname, this.name, this.middleName, this.address, this.telephone, this.additionalInfo) : this.toString();
 	}
 }

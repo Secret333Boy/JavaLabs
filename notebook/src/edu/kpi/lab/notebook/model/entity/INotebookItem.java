@@ -26,4 +26,5 @@ public interface INotebookItem {
 	void setAdditionalInfo(String additionalInfo);
 
 	String toString();
+	String toString(boolean formatted);
 }
