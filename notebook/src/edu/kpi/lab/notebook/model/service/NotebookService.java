@@ -1,5 +1,6 @@
-package edu.kpi.lab.notebook.model.entity;
+package edu.kpi.lab.notebook.model.service;
 
+import edu.kpi.lab.notebook.model.entity.NotebookItem;
 import edu.kpi.lab.notebook.model.exceptions.ParserException;
 import edu.kpi.lab.notebook.model.repository.NotebookRepository;
 
@@ -9,19 +10,19 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Notebook implements INotebook {
+public class NotebookService implements INotebookService {
 	private final NotebookRepository repository = new NotebookRepository();
 	private List<NotebookItem> itemList;
 
-	public Notebook() {
+	public NotebookService() throws IOException {
 		this.itemList = new ArrayList<>(0);
 	}
 
-	public Notebook(NotebookItem[] arrayOfItems) {
+	public NotebookService(NotebookItem[] arrayOfItems) throws IOException {
 		this.itemList = Arrays.stream(arrayOfItems).collect(Collectors.toList());
 	}
 
-	public Notebook(List<NotebookItem> itemList) {
+	public NotebookService(List<NotebookItem> itemList) throws IOException {
 		this.itemList = itemList;
 	}
 

@@ -1,4 +1,4 @@
-package edu.kpi.lab.notebook.model.entity;
+package edu.kpi.lab.notebook.model.service;
 
 import edu.kpi.lab.notebook.model.entity.NotebookItem;
 import edu.kpi.lab.notebook.model.exceptions.ParserException;
@@ -6,7 +6,7 @@ import edu.kpi.lab.notebook.model.exceptions.ParserException;
 import java.io.IOException;
 import java.util.List;
 
-public interface INotebook {
+public interface INotebookService {
 	List<NotebookItem> getListOfItems();
 
 	void addItem(NotebookItem item);

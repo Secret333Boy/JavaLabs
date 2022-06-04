@@ -1,6 +1,5 @@
 package edu.kpi.lab.notebook.model.repository;
 
-import edu.kpi.lab.notebook.model.entity.Notebook;
 import edu.kpi.lab.notebook.model.entity.NotebookItem;
 import edu.kpi.lab.notebook.model.exceptions.ParserException;
 import edu.kpi.lab.notebook.model.parser.NotebookParser;
@@ -13,12 +12,11 @@ public class NotebookRepository {
 	private final File file = new File("repository.dat");
 	private final FileProcessor fileProcessor = new FileProcessor(file);
 
-	public NotebookRepository() {
-		try {
-			file.createNewFile();
-		} catch (IOException e) {
-			System.out.println("Error: " + e);
-			System.exit(2612);
+	public NotebookRepository() throws IOException {
+		if (file.createNewFile()) {
+			//logger - file loaded successfully
+		} else {
+			//logger - file created
 		}
 	}
 
