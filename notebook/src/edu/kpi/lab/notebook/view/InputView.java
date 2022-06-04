@@ -41,9 +41,16 @@ public class InputView implements IInputView {
 	}
 
 	@Override
-	public int getMenuOptionInput() {
+	public MenuOption getMenuOptionInput() {
 		view.printMessage(NotebookView.CHOOSE_MESSAGE);
-		return this.getInputInt(1, NotebookView.MAIN_MENU_ITEMS_COUNT);
+		int i = this.getInputInt(1, NotebookView.MAIN_MENU_ITEMS_COUNT);
+		return switch (i) {
+			case 1 -> MenuOption.SHOW_ALL;
+			case 2 -> MenuOption.FILTER_BY_FIRST_LETTER_OF_SURNAME;
+			case 3 -> MenuOption.FILTER_BY_TELEPHONE_EXISTENCE;
+			case 4 -> MenuOption.EXIT;
+			default -> throw new IllegalStateException("Unexpected value: " + i);
+		};
 	}
 
 	@Override

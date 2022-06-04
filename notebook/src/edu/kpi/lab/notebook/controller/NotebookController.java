@@ -3,6 +3,7 @@ package edu.kpi.lab.notebook.controller;
 import edu.kpi.lab.notebook.model.service.NotebookService;
 import edu.kpi.lab.notebook.model.exceptions.ParserException;
 import edu.kpi.lab.notebook.view.InputView;
+import edu.kpi.lab.notebook.view.MenuOption;
 import edu.kpi.lab.notebook.view.NotebookView;
 
 import java.io.IOException;
@@ -31,22 +32,22 @@ public class NotebookController {
 		while (!finished) {
 			this.view.clearConsole();
 			this.view.printMenu();
-			int chosenOption = this.input.getMenuOptionInput();
+			MenuOption chosenOption = this.input.getMenuOptionInput();
 			switch (chosenOption) {
-				case 1 -> {
+				case SHOW_ALL -> {
 					this.view.printResult(notebookService.getListOfItems());
 					this.input.waitUntilKeyIsPressed();
 				}
-				case 2 -> {
+				case FILTER_BY_FIRST_LETTER_OF_SURNAME -> {
 					String letter = this.input.getInputLetter();
 					this.view.printResult(notebookService.findByFirstLetterOfSurname(letter));
 					this.input.waitUntilKeyIsPressed();
 				}
-				case 3 -> {
+				case FILTER_BY_TELEPHONE_EXISTENCE -> {
 					this.view.printResult(notebookService.filterByTelephoneExistence());
 					this.input.waitUntilKeyIsPressed();
 				}
-				case 4 -> {
+				case EXIT -> {
 					if (this.input.getInputSureExit()) {
 						finished = true;
 						try {

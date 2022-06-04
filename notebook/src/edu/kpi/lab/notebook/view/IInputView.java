@@ -7,7 +7,7 @@ public interface IInputView {
 
 	int getInputInt(int from, int to);
 
-	int getMenuOptionInput();
+	MenuOption getMenuOptionInput();
 
 	String getInputString();
 
