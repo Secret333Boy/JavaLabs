@@ -54,6 +54,7 @@ public class NotebookController {
 							notebookService.saveToFile();
 						} catch (IOException e) {
 							view.printError(e);
+							input.waitUntilKeyIsPressed();
 						}
 					}
 				}
