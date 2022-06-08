@@ -1,9 +1,6 @@
 package edu.kpi.lab.notebook.model.repository;
 
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.PrintWriter;
+import java.io.*;
 import java.util.Scanner;
 
 public class FileProcessor {
@@ -14,7 +11,9 @@ public class FileProcessor {
 	}
 
 	public void writeFile(String str) throws IOException {
-		new PrintWriter(this.file).print(str);
+		FileWriter writer = new FileWriter(this.file);
+		writer.write(str);
+		writer.close();
 	}
 
 	public String readFile() throws IOException {
