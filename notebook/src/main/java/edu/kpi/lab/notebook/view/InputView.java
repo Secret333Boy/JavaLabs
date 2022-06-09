@@ -80,6 +80,6 @@ public class InputView implements IInputView {
 	@Override
 	public void waitUntilKeyIsPressed() {
 		System.out.println("Press Any Key To Continue...");
-		new java.util.Scanner(System.in).nextLine();
+		new Scanner(System.in).nextLine();
 	}
 }

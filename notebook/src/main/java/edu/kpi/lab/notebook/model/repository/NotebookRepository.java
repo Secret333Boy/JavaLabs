@@ -3,20 +3,20 @@ package edu.kpi.lab.notebook.model.repository;
 import edu.kpi.lab.notebook.model.entity.NotebookItem;
 import edu.kpi.lab.notebook.model.exceptions.ParserException;
 import edu.kpi.lab.notebook.model.parser.NotebookParser;
+import org.apache.log4j.Logger;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
 public class NotebookRepository {
-	private final File file = new File("repository.dat");
+	private final File file = new File("src/main/resources/repository.dat");
 	private final FileProcessor fileProcessor = new FileProcessor(file);
 
 	public NotebookRepository() throws IOException {
 		if (file.createNewFile()) {
-			//logger - file loaded successfully
-		} else {
-			//logger - file created
+			Logger logger = Logger.getLogger(NotebookRepository.class);
+			logger.info("File " + file.getAbsolutePath() + " has not been found. Blank file has been created successfully");
 		}
 	}
 
