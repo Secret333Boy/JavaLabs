@@ -1,0 +1,5 @@
+[main] => [INFO] 2022-06-09 15:19:18,506 edu.kpi.lab.notebook.controller.NotebookController  - Program has been started
+[main] => [INFO] 2022-06-09 15:19:18,509 edu.kpi.lab.notebook.controller.NotebookController  - Successfully initialized notebook service
+[main] => [INFO] 2022-06-09 15:19:18,517 edu.kpi.lab.notebook.controller.NotebookController  - Successfully loaded data from a file
+[main] => [INFO] 2022-06-09 15:19:22,554 edu.kpi.lab.notebook.controller.NotebookController  - Successfully saved to file
+[main] => [INFO] 2022-06-09 15:19:22,554 edu.kpi.lab.notebook.controller.NotebookController  - Program has been terminated by user
