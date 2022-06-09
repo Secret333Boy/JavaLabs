@@ -3,3 +3,12 @@
 [main] => [INFO] 2022-06-09 15:19:18,517 edu.kpi.lab.notebook.controller.NotebookController  - Successfully loaded data from a file
 [main] => [INFO] 2022-06-09 15:19:22,554 edu.kpi.lab.notebook.controller.NotebookController  - Successfully saved to file
 [main] => [INFO] 2022-06-09 15:19:22,554 edu.kpi.lab.notebook.controller.NotebookController  - Program has been terminated by user
+[main] => [INFO] 2022-06-09 21:37:55,752 edu.kpi.lab.notebook.controller.NotebookController  - Program has been started
+[main] => [INFO] 2022-06-09 21:37:55,756 edu.kpi.lab.notebook.controller.NotebookController  - Successfully initialized notebook service
+[main] => [FATAL] 2022-06-09 21:37:55,762 edu.kpi.lab.notebook.controller.NotebookController  - Error while parsing data from a file
+edu.kpi.lab.notebook.model.exceptions.ParserException: Exception was thrown: Parser Error
+	at edu.kpi.lab.notebook.model.parser.NotebookParser.parse(NotebookParser.java:20)
+	at edu.kpi.lab.notebook.model.repository.NotebookRepository.load(NotebookRepository.java:30)
+	at edu.kpi.lab.notebook.model.service.NotebookService.loadFromFile(NotebookService.java:61)
+	at edu.kpi.lab.notebook.controller.NotebookController.start(NotebookController.java:23)
+	at edu.kpi.lab.notebook.Main.main(Main.java:8)

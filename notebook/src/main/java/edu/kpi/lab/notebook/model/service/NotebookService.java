@@ -15,7 +15,7 @@ public class NotebookService implements INotebookService {
 	private List<NotebookItem> itemList;
 
 	public NotebookService() throws IOException {
-		this.itemList = new ArrayList<>(0);
+		this.itemList = new ArrayList<>();
 	}
 
 	public NotebookService(NotebookItem[] arrayOfItems) throws IOException {
